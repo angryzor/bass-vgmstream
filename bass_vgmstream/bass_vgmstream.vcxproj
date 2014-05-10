@@ -41,13 +41,13 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(BASS_HOME)\include;$(VGMSTREAM_HOME)\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BASS_HOME)\lib;$(VGMSTREAM_HOME)\src\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BASS_HOME);$(VGMSTREAM_HOME)\src;$(VGMSTREAM_HOME)\ext_includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BASS_HOME);$(VGMSTREAM_HOME)\src\Release;$(VGMSTREAM_HOME)\ext_libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(BASS_HOME)\include;$(VGMSTREAM_HOME)\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(BASS_HOME)\lib;$(VGMSTREAM_HOME)\src\Release;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BASS_HOME);$(VGMSTREAM_HOME)\src;$(VGMSTREAM_HOME)\ext_includes;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BASS_HOME);$(VGMSTREAM_HOME)\src\Release;$(VGMSTREAM_HOME)\ext_libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -55,15 +55,16 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;BASS_VGMSTREAM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>bass.lib;libvgmstream.lib;libvorbis.lib;libvorbisfile.lib;libmpg123-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bass.lib;libvgmstream.lib;libg7221_decode.lib;libmpg123-0.lib;libvorbis.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "D:\Ruben Tytgat's Profile\Documents\Visual Studio 2010\Projects\SnKC HD Audio\Debug\bass_vgmstream.dll" "D:\Ruben Tytgat's Profile\Downloads\jDownloaded Unfiled\sonic\Sonic &amp; Knuckles Collection\bass_vgmstream.dll" /Y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -74,17 +75,19 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;BASS_VGMSTREAM_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>bass.lib;libvgmstream.lib;libvorbis.lib;libvorbisfile.lib;libmpg123-0.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>bass.lib;libvgmstream.lib;libg7221_decode.lib;libmpg123-0.lib;libvorbis.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers />
     </Link>
     <PostBuildEvent>
-      <Command>copy "D:\Ruben Tytgat's Profile\Documents\Visual Studio 2010\Projects\SnKC HD Audio\Release\bass_vgmstream.dll" "D:\Ruben Tytgat's Profile\Downloads\jDownloaded Unfiled\sonic\Sonic &amp; Knuckles Collection\bass_vgmstream.dll" /Y</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
