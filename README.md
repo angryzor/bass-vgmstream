@@ -37,6 +37,10 @@ Building bass-vgmstream
 Set the build configuration to Release. You should now simply be able to build the project
 and get the binary.
 
+NOTE: By default, I set the project to use the MultiThreaded DLL runtime. This is because vgmstream uses
+MT DLL and since vgmstream is a static library the runtimes must be the same. If you want to use a
+static runtime, you'll also have to change vgmstream's runtime.
+
 Required binaries
 =================
 Your application should have the following binaries available:
